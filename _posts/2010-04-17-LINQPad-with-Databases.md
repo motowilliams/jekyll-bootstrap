@@ -1,0 +1,45 @@
+---
+layout: post
+image_root: "/assets/images/"
+title: "LINQPad with Databases"
+author: "Eric Williams"
+categories: [LINQPad, SQLite]
+---
+
+<p><a href="http://www.linqpad.net/">LINQPad</a> is a fantastic free utility from author and C# guru <a href="http://www.albahari.com/">Joesph Albahari</a>.  Per the tag line on the LINQPad site "Kiss goodbye to SQL Management Studio!" and I would suggest that if you are a SQL Server Management Studio user and also interested in LINQ that you take the <a href="http://www.linqpad.net/Challenge.aspx">LINQPad Replacement Challenge</a>!</p>
+
+<p>I didn't even know about LINQPad until a few years ago when I got the (then 3.0) <a href="http://www.albahari.com/nutshell/">C# 4.0 in a Nutshell</a> book.  It is one of those companion applications that plays a role in the book text and one of the important hooks between the book and the application is that when you registered your copy of the book with the site you received a code that enabled <a href="http://www.linqpad.net/Purchase.aspx">Autocompletion</a>.  Not sure if that is still an option or not.</p>
+
+<p>So what the heck is it already?  Well LINQPad is many things.  It is an application that will allow you to run LINQ queries against a number of things, Objects, LINQ to SQL, Entity Framework, XML, WCF Data Services (OData), SQLite and MySQL as well as a few others.  It has the <a href="http://www.sliver.com/dotnet/SnippetCompiler">Snippet Compiler</a> feel where you can write a couple of lines of code and F5 it to see what it does.  All around a good LINQ-to-* learning tool.</p>
+
+<p>So show me the code already.</p>
+
+<p>First we need a data store to hook up to LINQPad.  Let's have a little taste of <a href="http://www.sqlite.org">SQLite</a> for some sample data.  I've download a local copy of SQLite and stubbed up a simple database called <strong>MyDatabase.db</strong>.  SQLite has a command line syntax that you can look into.  For the point of this post I started SQLite and used the .Read function and supplied a external file name with the contents of the file below.</p>
+
+<script src="https://gist.github.com/1307872.js"> </script>
+
+<p>Now start up LINQPad and click on the standard Add Connection function.  Here you'll see a few nonstandard options, at least from the typical items you'd expect when you 'add a connection' from most other windows developer tools.</p>
+
+<p><img title="LINQPad_ChooseDataContext" alt="LINQPad_ChooseDataContext" src="{{page.image_root}}LINQPad_ChooseDataContext.png"></p>
+
+<p>If you click on the 'View more drivers...' button you'll find options for other third party LINQPad drivers.  In this case we're looking for the SQlite drivers.</p>
+
+<p><img title="LINQPad_Choose_a_driver" alt="LINQPad_Choose_a_driver" src="{{page.image_root}}LINQPad_Choose_a_driver.png"></p>
+
+<p>The driver install for the SQLite driver was pretty slick and seem less and you'll end up with a third item in 'Build data context automatically' section.  Select the IQ driver and the SQLite provider and the location of the SQLite database created earlier.</p>
+
+<p><img title="LINQPad_ChooseDataContext_SQLLite_Driver" alt="LINQPad_ChooseDataContext_SQLLite_Driver" src="{{page.image_root}}LINQPad_ChooseDataContext_SQLLite_Driver.png"></p>
+
+<p>Now you have an available connection to execute queries against.  For the Visual Studio inclined this is the Server Explorer idea.</p>
+
+<p><img title="LINQPad_Current_Connections" alt="LINQPad_Current_Connections" src="{{page.image_root}}LINQPad_Current_Connections.png"></p>
+
+<p>Now for a couple of simple queries.  The first one if probably the simplest query you could do.  Selecting everything.  Notice the handy output display it gives you.</p>
+
+<p><img title="LINQPad_Simple_LINQ_QueryAll" alt="LINQPad_Simple_LINQ_QueryAll" src="{{page.image_root}}LINQPad_Simple_LINQ_QueryAll.png"></p>
+
+<p>And this one has a simple filter to show how you can limit the data you want to return.  Nothing but the serious folks listed here and also notice the SQL tab is selected to show you the SQL that is being executed against the given database.</p>
+
+<p><img title="LINQPad_Simple_LINQ_Query_With_Where_Clause" alt="LINQPad_Simple_LINQ_Query_With_Where_Clause" src="{{page.image_root}}LINQPad_Simple_LINQ_Query_With_Where_Clause.png"></p>
+
+<p>Hopefully this will give you enough of a taste to want to try it out for yourself.</p>
